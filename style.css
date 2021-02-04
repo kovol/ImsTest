@@ -1,0 +1,447 @@
+.iti-flag {
+    background-image: url(./intl/build/img/flags.png);
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* NAVBAR */
+.navbar {
+    background: linear-gradient(0deg, rgba(24, 90, 78, .5),
+            rgba(60, 126, 114, 0.5)), url("img/header.png") center/cover;
+    color: white;
+}
+
+.navbar-brand {
+    padding-top: 25px;
+    padding-bottom: 26px;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0;
+    margin-right: 40px;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+/* custom burger icon */
+i {
+    color: white;
+    font-size: 36px;
+}
+
+/* remove arrow from the language select and styling */
+select.form-control {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #113A32;
+    font-size: 20px;
+    padding: 0 2px;
+    height: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.wrapper {
+    width: 455px;
+    margin-right: 57px;
+    margin-left: 77px;
+}
+
+.sign-up__left {
+    color: white;
+    background: url("img/left.png") center/cover;
+}
+
+.sign-up h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sign-up__right {
+    padding-top: 157px;
+    color: #8A8C8C;
+}
+
+#personal,
+#forgotten {
+    text-decoration: underline;
+}
+
+#personal:hover,
+#forgotten:hover {
+    color: #000 !important;
+}
+
+
+.sign-up__right h2 {
+    color: #378973;
+
+}
+
+.sign-up p {
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+.sign-up .btn,
+.sign-in .btn {
+    color: white;
+    border: 2px solid white;
+    padding: 20px 102px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form input {
+    padding: 20px 25px;
+    background-color: #ECF0EF;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.sign-up p.note {
+    font-size: 13px;
+}
+
+
+
+/* ////////////CUSTOM CHECKBOX//////////////// */
+
+.form-check {
+    position: relative;
+    padding-left: 25px;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+/* Hide the browser's default checkbox */
+.form-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    height: 15px;
+    width: 15px;
+    border: 1px solid #8A8C8C;
+    cursor: pointer;
+}
+
+.sign-in .checkmark {
+    top: 2px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check .checkmark:after {
+    left: 4px;
+    top: 0px;
+    width: 6px;
+    height: 11px;
+    border: solid #8A8C8C;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.form-check label:hover {
+    color: #000;
+}
+
+/* //////////BUTTONcOLOR///// */
+
+.btn-full {
+    color: #fff;
+    border-width: 2px;
+    background-color: #4AA98E;
+}
+
+.btn-full:focus,
+.btn-full.focus {
+    color: #fff;
+    background-color: #3a8670;
+    border-color: #1b3f35;
+}
+
+.btn-full:hover {
+    color: #fff;
+    background-color: #3a8670;
+    border-color: #306d5b;
+}
+
+.btn-full:active,
+.btn-full.active,
+.open>.btn-full.dropdown-toggle {
+    color: #fff;
+    background-color: #3a8670;
+    background-image: none;
+    border-color: #306d5b;
+}
+
+.btn-full:active:hover,
+.btn-full:active:focus,
+.btn-full:active.focus,
+.btn-full.active:hover,
+.btn-full.active:focus,
+.btn-full.active.focus,
+.open>.btn-full.dropdown-toggle:hover,
+.open>.btn-full.dropdown-toggle:focus,
+.open>.btn-full.dropdown-toggle.focus {
+    color: #fff;
+    background-color: #306d5b;
+    border-color: #1b3f35;
+}
+
+
+
+.btn-gradient {
+    color: #fff;
+    background: linear-gradient(88.02deg, #378973 0%, #57BEA0 51.56%, #75EFCA 100%);
+    border-color: #42977f;
+}
+
+.btn-gradient:focus,
+.btn-gradient.focus {
+    color: #fff;
+    background: linear-gradient(88.02deg, #3a8670 0%, #3a8670 100%);
+    border-color: #1b3f35;
+}
+
+.btn-gradient:hover {
+    color: #fff;
+    background: linear-gradient(88.02deg, #3a8670 0%, #3a8670 100%);
+    border-color: #306d5b;
+}
+
+.btn-gradient:active,
+.btn-gradient.active,
+.open>.btn-gradient.dropdown-toggle {
+    color: #fff;
+    background: linear-gradient(88.02deg, #3a8670 0%, #3a8670 100%);
+    border-color: #306d5b;
+}
+
+.btn-gradient:active:hover,
+.btn-gradient:active:focus,
+.btn-gradient:active.focus,
+.btn-gradient.active:hover,
+.btn-gradient.active:focus,
+.btn-gradient.active.focus,
+.open>.btn-gradient.dropdown-toggle:hover,
+.open>.btn-gradient.dropdown-toggle:focus,
+.open>.btn-gradient.dropdown-toggle.focus {
+    color: #fff;
+    background: linear-gradient(88.02deg, #306d5b 0%, #306d5b 100%);
+    border-color: #1b3f35;
+}
+
+
+
+.btn-full__light {
+    color: #fff;
+    background-color: #5AC3A4;
+    border-color: #47bc9a;
+}
+
+.btn-full__light:focus,
+.btn-full__light.focus {
+    color: #fff;
+    background-color: #3eac8b;
+    border-color: #23614f;
+}
+
+.btn-full__light:hover {
+    color: #fff;
+    background-color: #3eac8b;
+    border-color: #359176;
+}
+
+.btn-full__light:active,
+.btn-full__light.active,
+.open>.btn-full__light.dropdown-toggle {
+    color: #fff;
+    background-color: #3eac8b;
+    background-image: none;
+    border-color: #359176;
+}
+
+.btn-full__light:active:hover,
+.btn-full__light:active:focus,
+.btn-full__light:active.focus,
+.btn-full__light.active:hover,
+.btn-full__light.active:focus,
+.btn-full__light.active.focus,
+.open>.btn-full__light.dropdown-toggle:hover,
+.open>.btn-full__light.dropdown-toggle:focus,
+.open>.btn-full__light.dropdown-toggle.focus {
+    color: #fff;
+    background-color: #359176;
+    border-color: #23614f;
+}
+
+
+.sign-in__right {
+    color: white;
+    background: url("img/right.png") center/cover;
+}
+
+.sign-in h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sign-in__left {
+    padding-top: 157px;
+    color: #8A8C8C;
+}
+
+#personal {
+    text-decoration: underline;
+}
+
+.sign-in__left h2 {
+    color: #378973;
+
+}
+
+.sign-in p {
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+.sign-in .btn {
+    margin-bottom: 15px;
+}
+
+.form input {
+    padding: 20px 25px;
+    background-color: #ECF0EF;
+    font-size: 16px;
+}
+
+.sign-in p.note {
+    font-size: 13px;
+}
+
+/* Animation */
+.container-wrapper {
+    position: relative;
+}
+
+#back,
+#front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.sign-in.front {
+    opacity: 0;
+    transform: translateX(-100%);
+    z-index: 0;
+
+}
+
+.sign-in.back {
+    opacity: 0;
+    transform: translateX(100%);
+    z-index: 0;
+}
+
+.sign-up.front {
+    opacity: 1;
+    z-index: 5;
+
+
+}
+
+.sign-up.back {
+    opacity: 1;
+    z-index: 5;
+
+
+}
+
+.sign-up.front,
+.sign-in.front,
+.sign-up.back,
+.sign-in.back {
+    transition: transform .6s cubic-bezier(0, .46, .66, .92);
+
+}
+
+form h5 {
+    font-size: 12px;
+}
+
+.intl-tel-input {
+    display: block !important;
+
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .wrapper {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .sign-up .btn,
+    .sign-in .btn {
+        padding: 10px 82px;
+    }
+    .sign-in.front, .sign-in.back {
+        transform: translateX(0);
+    }
+
+}
