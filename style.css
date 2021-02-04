@@ -443,7 +443,7 @@ form h5 {
     .sign-in.front, .sign-in.back {
         transform: translateX(0);
     }
-    .sign-in form{
+    .sign-in form, .sign-up form{
         margin-bottom: 20px;
     }
 
