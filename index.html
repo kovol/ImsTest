@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="h-100">
+<body class="min-vh-100">
     <div class="container-fluid min-vh-100 ">
         <div class="row">
             <nav class="navbar  navbar-dark col-12">
@@ -65,14 +65,34 @@
             </nav>
         </div>
         <div class="container-fluid p-0 min-vh-100 container-wrapper">
-            <div class="row min-vh-100 d-flex " id="back">
-                <div class="sign-in  sign-in__left col-md-6 d-flex min-vh-100 justify-content-end align-items-start back">
+            <div class="row min-vh-100 d-flex first "  id="front">
+                <div class="sign-up  sign-up__left col-md-6 d-flex min-vh-100 justify-content-end align-items-center front" id="welcome">
+                    <div class="wrapper text-center ">
+                        <h2>Добро пожаловать!</h2>
+                        <p>У Вас уже есть аккаунт?<br>
+                            Авторизуйтесь и приступайте к торговли!</p>
+                        <button class="btn btn-full" id="authorization">АВТОРИЗАЦИЯ</button>
+                    </div>
+                </div>
+                <div
+                    class="sign-in min-vh-100 sign-in__right col-md-6 d-flex justify-content-start align-items-center front" id="notRegistered"> 
+                    <div class="wrapper text-center">
+                        <h2>Вы ещё не зарегистрированы?</h2>
+                        <p>Заполните небольшую форму
+                            для создания торгового аккаунта!</p>
+                        <button class="btn btn-full__light" id="createAccount">СОЗДАТЬ АККАУНТ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row min-vh-100 d-flex second"  id="back">
+                <div class="sign-in  sign-in__left col-md-6 d-flex min-vh-100 justify-content-end align-items-start back" id="authorizationForm">
                     <div class="wrapper text-center ">
                         <h2>Авторизация</h2>
                         <form class="form text-center" action="#">
                             <p>(используйте логин и пароль для входа)</p>
                             <div class="form-group">
                                 <input type="email" id="login" class="form-control" placeholder="Логин (Ваш E-mail)">
+                               
                                 <h5 id="emailLogin" style="color: red;">
                                     Введите Ваш E-mail
                                 </h5>
@@ -95,7 +115,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="sign-up min-vh-100 sign-up__right col-md-6 d-flex justify-content-start align-items-start back">
+                <div class="sign-up min-vh-100 sign-up__right col-md-6 d-flex justify-content-start align-items-start back" id="registrationForm">
                     <div class="wrapper text-center">
                         <h2>Регистрация клиента</h2>
                         <form class="form text-center" action="#">
@@ -133,36 +153,17 @@
                                     </h5>
                                 </label>
                             </div>
-                            <button type="submit" id="registration" class="btn btn-gradient">ЗАРЕГИСТИРОВАТЬСЯ</button>
+                            <input type="submit" id="registration" class="btn btn-gradient" value="ЗАРЕГИСТИРОВАТЬСЯ">
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="row min-vh-100 d-flex  " id="front">
-                <div class="sign-up  sign-up__left col-md-6 d-flex min-vh-100 justify-content-end align-items-center front">
-                    <div class="wrapper text-center ">
-                        <h2>Добро пожаловать!</h2>
-                        <p>У Вас уже есть аккаунт?<br>
-                            Авторизуйтесь и приступайте к торговли!</p>
-                        <button class="btn btn-full" id="authorization">АВТОРИЗАЦИЯ</button>
-                    </div>
-                </div>
-                <div
-                    class="sign-in min-vh-100 sign-in__right col-md-6 d-flex justify-content-start align-items-center front">
-                    <div class="wrapper text-center">
-                        <h2>Вы ещё не зарегистрированы?</h2>
-                        <p>Заполните небольшую форму
-                            для создания торгового аккаунта!</p>
-                        <button class="btn btn-full__light" id="createAccount">СОЗДАТЬ АККАУНТ</button>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 
 
 
-    <script src="path_to_jquery-2.2.0.min.js"></script>
     <script src="intl/build/js/intlTelInput.min.js"></script>
     <script>
         $("#phone").intlTelInput();
