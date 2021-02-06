@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="min-vh-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMS test</title>
+    <!-- Latest compiled and minified CSS -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--  intlTelInput-->
+    <link rel="stylesheet" href="intl/build/css/intlTelInput.min.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fb0afa5fc1.js" crossorigin="anonymous"></script>
+
+
+
+
+
+    <?php
+//index.php
+
+$error = '';
+$name = '';
+$email = '';
+$fullphone ='';
+
+function clean_text($string)
+{
+ $string = trim($string);
+ $string = stripslashes($string);
+ $string = htmlspecialchars($string);
+ return $string;
+}
+
+if(isset($_POST["submit"]))
+{
+    $name = clean_text($_POST["name"]);
+    $email = clean_text($_POST["email"]);
+    $fullphone = $_POST["fullphone"];
+ 
+ 
+
+ if($error == '')
+ {
+  $file_open = fopen("contact_data.csv", "a");
+  $no_rows = count(file("contact_data.csv"));
+  if($no_rows > 1)
+  {
+   $no_rows = ($no_rows - 1) + 1;
+  }
+  $form_data = array(
+   'sr_no'  => $no_rows,
+   'name'  => $name,
+   'email'  => $email,
+   'fullphone' => $fullphone
+  );
+  fputcsv($file_open, $form_data);
+  $error = '<label class="text-success">Thank you for contacting us</label>';
+  $name = '';
+  $email = '';
+  $fullphone = '';
+ }
+}
+
+?>
+
+
+</head>
+
+<body class="min-vh-100">
+    
+    <div class="container-fluid min-vh-100 ">
+       
+        <div class="row">
+            <nav class="navbar  navbar-dark col-12">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo.png" alt="logo image">
+                    </a>
+                    <button class="navbar-toggler ml-auto " type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <form class="form-inline" action="#">
+                        <div class="input-group">
+                            
+                            <select class="form-control" id="selLang">
+                                <option>Ru</option>
+                                <option>Ua</option>
+                                <option>En</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid p-0 min-vh-100 container-wrapper">
+            <div class="row min-vh-100 d-flex second"  id="back">
+                <div class="sign-in  sign-in__left col-md-6 d-flex min-vh-100 justify-content-end align-items-start back" id="authorizationForm">
+                    <div class="wrapper text-center ">
+                        <h2>Авторизация</h2>
+                        <form class="form text-center" action="#"> 
+                            <p>(используйте логин и пароль для входа)</p>
+                            <div class="form-group">
+                                <input type="email" id="login" class="form-control" placeholder="Логин (Ваш E-mail)">
+                               
+                                <h5 id="emailLogin" style="color: red;">
+                                    Введите Ваш E-mail
+                                </h5>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="password" class="form-control" placeholder="Пароль">
+                                <h5 id="passcheck" style="color: red;">
+                                    Введите Ваш пароль
+                                </h5>
+                            </div>
+                            <div class="form-check text-left ml-4 ">
+                                <label class="form-check-label align-middle ">
+                                    <input type="checkbox" class="form-check-input text-center">
+                                    <span class="checkmark rounded"></span>
+                                    <p class="note  text-center ml-4 ">Запомнить данные для входа</p>
+                                </label>
+                            </div>
+                            <button type="submit" id="enter" class="btn btn-gradient">Войти</button><br>
+                            <a href="#" class="text-reset" id="forgotten">Забыли логин или пароль?</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="sign-up min-vh-100 sign-up__right col-md-6 d-flex justify-content-start align-items-start back" id="registrationForm">
+                    <div class="wrapper text-center">
+                        <h2>Регистрация клиента</h2>
+                        <form class="form text-center" action="#" method="post" >
+                            <p>Заполните небольшую форму
+                                для создания аккаунта</p>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Введите имя" id="name">
+                                <h5 id="usercheck" style="color: red;">
+                                    Введите Ваше имя
+                                </h5>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="E-mail" id="email">
+                                <h5 id="emailcheck" style="color: red;">
+                                    Нужен правильный E-mail
+                                </h5>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Телефон">
+                                <h5 id="phonecheck" style="color: red;">
+                                    Введите номер телефона
+                                </h5>
+                            </div>
+                            <div class="form-check text-left ml-4 ">
+                                <label class="form-check-label ">
+                                    <input type="checkbox" id="checkbox" class="form-check-input text-center">
+                                    <span class="checkmark rounded"></span>
+                                    <p class="note  text-center ml-4">Заполняя форму регистрации, я принимаю <br>
+                                        <a href="#" class="text-reset" id="personal">
+                                            условия обработки персональных данных
+                                        </a>
+                                    </p>
+                                    <h5 id="checkboxcheck" style="color: red; position: relative; top: -22px; left: 25px;">
+                                        Нужно принять условия
+                                    </h5>
+                                </label>
+                            </div>
+                            <input type="submit" id="registration" name="submit" class="btn btn-gradient" value="ЗАРЕГИСТИРОВАТЬСЯ">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row min-vh-100 d-flex first "  id="front">
+                <div class="sign-up  sign-up__left col-md-6 d-flex min-vh-100 justify-content-end align-items-center front" id="welcome">
+                    <div class="wrapper text-center ">
+                        <h2>Добро пожаловать!</h2>
+                        <p>У Вас уже есть аккаунт?<br>
+                            Авторизуйтесь и приступайте к торговли!</p>
+                        <button class="btn btn-full" id="authorization">АВТОРИЗАЦИЯ</button>
+                    </div>
+                </div>
+                <div
+                    class="sign-in min-vh-100 sign-in__right col-md-6 d-flex justify-content-start align-items-center front" id="notRegistered"> 
+                    <div class="wrapper text-center">
+                        <h2>Вы ещё не зарегистрированы?</h2>
+                        <p>Заполните небольшую форму
+                            для создания торгового аккаунта!</p>
+                        <button class="btn btn-full__light" id="createAccount">СОЗДАТЬ АККАУНТ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="intl/build/js/intlTelInput-jquery.min.js"></script>
+    <script src="intl/build/js/utils.js"></script>
+
+    <script>
+        $("#phone").intlTelInput({
+            onlyCountries: ['ua', 'us', 'ru'],
+            preferredCountries: ["ua","us" ],
+            hiddenInput: "fullphone"
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
