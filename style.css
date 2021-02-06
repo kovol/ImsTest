@@ -432,8 +432,11 @@ form h5 {
 }
 
 @media screen and (max-width: 768px) {
-    .wrapper {
+     .wrapper {
         width: 100%;
+    }
+    .col-md-6{
+        margin-bottom: 10px;
     }
 
     .sign-up .btn,
@@ -442,9 +445,25 @@ form h5 {
     }
     .sign-in.front, .sign-in.back {
         transform: translateX(0);
+        opacity:1;
+        
     }
-    .sign-in form, .sign-up form{
-        margin-bottom: 20px;
+    
+    #front, #back {
+        position:static;
+    }
+   
+
+    .container-wrapper {
+        display: flex;
+        flex-flow: column;
+
+    }
+    .container-wrapper > .row.second {
+        order:2;
+    }
+    .container-wrapper > .row.first {
+        order: 1;
     }
 
 }
