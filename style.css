@@ -465,5 +465,8 @@ form h5 {
     .container-wrapper > .row.first {
         order: 1;
     }
+        .sign-up__right {
+        padding-top: 0;
+    }
 
 }
