@@ -179,10 +179,10 @@ let checkErr = true;
             $('#checkboxcheck').show();
             checkErr = false;
             return false;
+        } else {
+            checkErr = true;
+            return true;
         }
-        
-        checkErr = true;
-        return true;
 
     }
 
