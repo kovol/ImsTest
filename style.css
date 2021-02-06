@@ -1,6 +1,9 @@
 .iti-flag {
     background-image: url(./intl/build/img/flags.png);
 }
+.iti {
+    display: block;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
