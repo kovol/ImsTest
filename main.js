@@ -17,31 +17,35 @@ $(document).ready(function () {
                     },
                     800 );
                 });
+    }  else {
+        let cssParam = (tr, op, z) => {
+            return { transform : `translateX(${tr})`,
+             opacity : `${op}`,
+             "z-index" : `${z}`
+           }
+       
+     }
+     
+     
+         $("#authorization").click(function () {
+             $(".sign-in.front").css(cssParam(0, 1, 5));
+             $(".sign-in.back").css(cssParam(0, 1, 5));
+             $(".sign-up.front").css(cssParam('100%', 0, 0));
+             $(".sign-up.back").css(cssParam('-100%', 0, 0));
+     
+         });
+     
+         $("#createAccount").click(function () {
+             $(".sign-in.front").css(cssParam('-100%', 0, 0));
+             $(".sign-in.back").css(cssParam('100%', 0, 0));
+             $(".sign-up.front").css(cssParam(0, 1, 5));
+             $(".sign-up.back").css(cssParam(0, 1, 5));
+     
+         });
     }
-    let cssParam = (tr, op, z) => {
-       return { transform : `translateX(${tr})`,
-        opacity : `${op}`,
-        "z-index" : `${z}`
-      }
-  
-}
-
-
-    $("#authorization").click(function () {
-        $(".sign-in.front").css(cssParam(0, 1, 5));
-        $(".sign-in.back").css(cssParam(0, 1, 5));
-        $(".sign-up.front").css(cssParam('100%', 0, 0));
-        $(".sign-up.back").css(cssParam('-100%', 0, 0));
-
-    });
-
-    $("#createAccount").click(function () {
-        $(".sign-in.front").css(cssParam('-100%', 0, 0));
-        $(".sign-in.back").css(cssParam('100%', 0, 0));
-        $(".sign-up.front").css(cssParam(0, 1, 5));
-        $(".sign-up.back").css(cssParam(0, 1, 5));
-
-    });
+    
+    
+    
 
     // Validate Username 
     $('#usercheck').hide();
