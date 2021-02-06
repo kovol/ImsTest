@@ -1,51 +1,50 @@
 $(document).ready(function () {
     let width = $(window).width();
-    if(width<767){
-     
+    if (width < 767) {
+
         $("#authorization").click(function () {
-             $("body,html").animate(
-                {
-                  scrollTop: $("#authorizationForm").offset().top
+            $("body,html").animate({
+                    scrollTop: $("#authorizationForm").offset().top
                 },
-                800 );
-            });
-        
-            $("#createAccount").click(function () {
-                $("body,html").animate(
-                    {
-                      scrollTop: $("#registrationForm").offset().top
-                    },
-                    800 );
-                });
-    }  else {
+                800);
+        });
+
+        $("#createAccount").click(function () {
+            $("body,html").animate({
+                    scrollTop: $("#registrationForm").offset().top
+                },
+                800);
+        });
+    } else {
         let cssParam = (tr, op, z) => {
-            return { transform : `translateX(${tr})`,
-             opacity : `${op}`,
-             "z-index" : `${z}`
-           }
-       
-     }
-     
-     
-         $("#authorization").click(function () {
-             $(".sign-in.front").css(cssParam(0, 1, 5));
-             $(".sign-in.back").css(cssParam(0, 1, 5));
-             $(".sign-up.front").css(cssParam('100%', 0, 0));
-             $(".sign-up.back").css(cssParam('-100%', 0, 0));
-     
-         });
-     
-         $("#createAccount").click(function () {
-             $(".sign-in.front").css(cssParam('-100%', 0, 0));
-             $(".sign-in.back").css(cssParam('100%', 0, 0));
-             $(".sign-up.front").css(cssParam(0, 1, 5));
-             $(".sign-up.back").css(cssParam(0, 1, 5));
-     
-         });
+            return {
+                transform: `translateX(${tr})`,
+                opacity: `${op}`,
+                "z-index": `${z}`
+            }
+
+        }
+
+
+        $("#authorization").click(function () {
+            $(".sign-in.front").css(cssParam(0, 1, 5));
+            $(".sign-in.back").css(cssParam(0, 1, 5));
+            $(".sign-up.front").css(cssParam('100%', 0, 0));
+            $(".sign-up.back").css(cssParam('-100%', 0, 0));
+
+        });
+
+        $("#createAccount").click(function () {
+            $(".sign-in.front").css(cssParam('-100%', 0, 0));
+            $(".sign-in.back").css(cssParam('100%', 0, 0));
+            $(".sign-up.front").css(cssParam(0, 1, 5));
+            $(".sign-up.back").css(cssParam(0, 1, 5));
+
+        });
     }
-    
-    
-    
+
+
+
 
     // Validate Username 
     $('#usercheck').hide();
@@ -173,17 +172,21 @@ $(document).ready(function () {
 
 
     $('#checkboxcheck').hide();
-let checkErr = true;
+    let checkErr = true;
+    $("#checkbox").change(function () {
+        validateCheckbox();
+    })
+
     function validateCheckbox() {
         if (!$("#checkbox").is(":checked")) {
             $('#checkboxcheck').show();
             checkErr = false;
             return false;
         } else {
+            $('#checkboxcheck').hide();
             checkErr = true;
             return true;
         }
-
     }
 
 
