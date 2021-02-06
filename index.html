@@ -27,8 +27,8 @@
 
 
 
-    <?php
-//index.php
+<!-- <?php
+
 
 $error = '';
 $name = '';
@@ -37,44 +37,44 @@ $fullphone ='';
 
 function clean_text($string)
 {
- $string = trim($string);
- $string = stripslashes($string);
- $string = htmlspecialchars($string);
- return $string;
+$string = trim($string);
+$string = stripslashes($string);
+$string = htmlspecialchars($string);
+return $string;
 }
 
 if(isset($_POST["submit"]))
 {
-    $name = clean_text($_POST["name"]);
-    $email = clean_text($_POST["email"]);
-    $fullphone = $_POST["fullphone"];
- 
- 
+$name = clean_text($_POST["name"]);
+$email = clean_text($_POST["email"]);
+$fullphone = $_POST["fullphone"];
 
- if($error == '')
- {
-  $file_open = fopen("contact_data.csv", "a");
-  $no_rows = count(file("contact_data.csv"));
-  if($no_rows > 1)
-  {
-   $no_rows = ($no_rows - 1) + 1;
-  }
-  $form_data = array(
-   'sr_no'  => $no_rows,
-   'name'  => $name,
-   'email'  => $email,
-   'fullphone' => $fullphone
-  );
-  fputcsv($file_open, $form_data);
-  $error = '<label class="text-success">Thank you for contacting us</label>';
-  $name = '';
-  $email = '';
-  $fullphone = '';
- }
+
+
+if($error == '')
+{
+$file_open = fopen("contact_data.csv", "a");
+$no_rows = count(file("contact_data.csv"));
+if($no_rows > 1)
+{
+$no_rows = ($no_rows - 1) + 1;
+}
+$form_data = array(
+'sr_no'  => $no_rows,
+'name'  => $name,
+'email'  => $email,
+'fullphone' => $fullphone
+);
+fputcsv($file_open, $form_data);
+$error = '<label class="text-success">Thank you for contacting us</label>';
+$name = '';
+$email = '';
+$fullphone = '';
+}
 }
 
 ?>
-
+ -->
 
 </head>
 
