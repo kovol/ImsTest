@@ -1,62 +1,52 @@
 $(document).ready(function () {
+    let width = $(window).width();
+    if(width<767){
+     
+        $("#authorization").click(function () {
+             $("body,html").animate(
+                {
+                  scrollTop: $("#authorizationForm").offset().top
+                },
+                800 );
+            });
+        
+            $("#createAccount").click(function () {
+                $("body,html").animate(
+                    {
+                      scrollTop: $("#registrationForm").offset().top
+                    },
+                    800 );
+                });
+    }
+    let cssParam = (tr, op, z) => {
+       return { transform : `translateX(${tr})`,
+        opacity : `${op}`,
+        "z-index" : `${z}`
+      }
+  
+}
 
 
     $("#authorization").click(function () {
-        $(".sign-in.front").css({
-            "transform": "translateX(0)",
-            "opacity": "1",
-            "z-index": "5"
-        });
-        $(".sign-in.back").css({
-            "transform": "translateX(0)",
-            "opacity": "1",
-            "z-index": "5"
-        });
-        $(".sign-up.front").css({
-            "transform": "translateX(100%)",
-            "opacity": "0",
-            "z-index": "0"
-        });
-        $(".sign-up.back").css({
-            "transform": "translateX(-100%)",
-            "opacity": "0",
-            "z-index": "0"
-        });
+        $(".sign-in.front").css(cssParam(0, 1, 5));
+        $(".sign-in.back").css(cssParam(0, 1, 5));
+        $(".sign-up.front").css(cssParam('100%', 0, 0));
+        $(".sign-up.back").css(cssParam('-100%', 0, 0));
 
     });
 
     $("#createAccount").click(function () {
-        $(".sign-in.front").css({
-
-            "transform": "translateX(-100%)",
-            "opacity": "0",
-            "z-index": "0"
-        });
-        $(".sign-in.back").css({
-
-            "transform": "translateX(100%)",
-            "opacity": "0",
-            "z-index": "0"
-        });
-        $(".sign-up.front").css({
-
-            "transform": "translateX(0)",
-            "opacity": "1",
-            "z-index": "5"
-        });
-        $(".sign-up.back").css({
-
-            "transform": "translateX(0)",
-            "opacity": "1",
-            "z-index": "5"
-        });
+        $(".sign-in.front").css(cssParam('-100%', 0, 0));
+        $(".sign-in.back").css(cssParam('100%', 0, 0));
+        $(".sign-up.front").css(cssParam(0, 1, 5));
+        $(".sign-up.back").css(cssParam(0, 1, 5));
 
     });
 
     // Validate Username 
     $('#usercheck').hide();
     let usernameError = true;
-    $('#name').blur(function () {
+    $('#name').keyup(function () {
         validateUsername();
     });
 
@@ -73,6 +63,7 @@ $(document).ready(function () {
             usernameError = false;
             return false;
         } else {
+            usernameError = true;
             $('#usercheck').hide();
         }
     }
@@ -96,6 +87,7 @@ $(document).ready(function () {
             passError = false;
             return false;
         } else {
+            passError = true;
             $('#passcheck').hide();
         }
     }
@@ -125,7 +117,7 @@ $(document).ready(function () {
             return false;
         }
     };
-    // Validate Login 
+    // Validate Login (Email) 
     $('#emailLogin').hide();
     let emailLoginError = true;
     $('#login').keyup(function () {
@@ -168,6 +160,7 @@ $(document).ready(function () {
             phoneError = false;
             return false;
         } else {
+            phoneError = true;
             $('#phonecheck').hide();
         }
     }
@@ -176,13 +169,14 @@ $(document).ready(function () {
 
 
     $('#checkboxcheck').hide();
-
+let checkErr = true;
     function validateCheckbox() {
         if (!$("#checkbox").is(":checked")) {
             $('#checkboxcheck').show();
-            checkErr = true;
+            checkErr = false;
             return false;
         }
+        
         checkErr = true;
         return true;
 
@@ -191,7 +185,7 @@ $(document).ready(function () {
 
 
 
-    // Submitt button 
+    // // Submitt buttons 
     $('#registration').click(function () {
         validateUsername();
         validateEmail();
